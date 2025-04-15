@@ -2,6 +2,7 @@ import { test } from '@playwright/test';
 import LoginPage from '../pages/LoginPage';
 import { encrypt, decrypt } from '../utils/CryptojsUtil';
 import { encryptEnvFile } from '../utils/EncryptEnvFiles';
+import logger from '../utils/LoggerUtil';
 
 test('Login', async ({ page }) => {
     
@@ -14,9 +15,10 @@ test('Login', async ({ page }) => {
     
     const inventoryPage = await loginPage.clickLoginButton();
     await inventoryPage.expectTitleToBeVisible();
+    logger.info('Login test completed');
 })
 
-test.skip('sample env test', async ({ page }) => {
+test.skip('Encrypt env files', async ({ page }) => {
     // const plainText = 'Hello World';
     // const encryptedText = encrypt(plainText);
     // console.log('SALT: ', process.env.SALT);

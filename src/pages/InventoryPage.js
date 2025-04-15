@@ -9,5 +9,6 @@ export default class InventoryPage {
 
     async expectTitleToBeVisible() {
         await expect(this.title).toBeVisible({ timeout: 15000 });
+        logger.info("Service Title is visible");
     }
 }
